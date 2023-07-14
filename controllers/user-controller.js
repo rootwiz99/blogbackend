@@ -1,4 +1,4 @@
-import User from "../models/user";
+import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 
 export const getAllUser = async (req, res, next) => {
@@ -60,5 +60,7 @@ export const login = async (req, res, next) => {
   if (!isPasswordCorrect) {
     return res.status(400).json({ message: "Incorrect Password" });
   }
-  return res.status(200).json({ message: "Login Successfull", user: existingUser });
+  return res
+    .status(200)
+    .json({ message: "Login Successfull", user: existingUser });
 };
